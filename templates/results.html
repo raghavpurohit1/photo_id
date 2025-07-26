@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        .photo { margin: 10px; display: inline-block; }
+        .photo img { max-width: 200px; max-height: 200px; }
+        .score { font-size: 12px; color: #666; }
+    </style>
+</head>
+<body>
+    <h1>Search Results for "{{ query }}"</h1>
+    
+    {% for photo in photos %}
+    <div class="photo">
+        <img src="{{ url_for('static', filename='uploads/' + photo.filename) }}" alt="Photo">
+        <div class="score">Score: {{ "%.2f"|format(photo.score) }}</div>
+    </div>
+    {% endfor %}
+    
+    <br><br>
+    <a href="/">← Back to upload</a>
+</body>
+</html>

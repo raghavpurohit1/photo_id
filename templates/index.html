@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Photo Organizer</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        .upload-area { border: 2px dashed #ccc; padding: 40px; text-align: center; margin: 20px 0; }
+        button { background: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        .search-area { margin-top: 40px; padding: 20px; background: #f8f9fa; border-radius: 5px; }
+        .nav-links { margin-bottom: 20px; }
+        .nav-links a { margin-right: 20px; color: #007bff; text-decoration: none; }
+        .nav-links a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/all_photos">View All Photos</a>
+    </div>
+    
+    <h1>Smart Photo Organizer</h1>
+    
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <div class="upload-area">
+            <p>Choose a photo to upload:</p>
+            <input type="file" name="photo" accept="image/*" required>
+            <br><br>
+            <button type="submit">Upload Photo</button>
+        </div>
+    </form>
+    
+    <div class="search-area">
+        <h3>Search Photos</h3>
+        <form action="/search" method="post">
+            <input type="text" name="query" placeholder="Describe what you're looking for..." style="width: 300px; padding: 8px;" required>
+            <button type="submit">Search</button>
+        </form>
+        <p><small>Try searching for things like "cat", "sunset", "people smiling", etc.</small></p>
+    </div>
+</body>
+</html>
